@@ -4,16 +4,14 @@ using ASP.NET_Core_Web_API.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ASP.NET_Core_Web_API.Migrations
 {
-    [DbContext(typeof(WakacjeContext))]
-    [Migration("20200507104954_Init")]
-    partial class Init
+    [DbContext(typeof(HospitalContext))]
+    partial class HospitalContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,97 +19,91 @@ namespace ASP.NET_Core_Web_API.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.Atrakcja", b =>
+            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.HospitalWard", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Cena")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NazwaAtrakcji")
+                    b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Odleglosc")
+                    b.Property<int>("OperationId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Opis")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WyjazdId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("WyjazdId");
-
-                    b.ToTable("Atrakcje");
-                });
-
-            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.Miejsce", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Kraj")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WyjazdId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("WyjazdId")
+                    b.HasIndex("OperationId")
                         .IsUnique();
 
-                    b.ToTable("Miejsca");
+                    b.ToTable("HospitalWards");
                 });
 
-            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.Wyjazd", b =>
+            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.MedicalProcedure", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("CzyFirma")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("Data")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NazwaWyjazdu")
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Organizator")
+                    b.Property<string>("MedicalProcedureName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("OperationId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OperationId");
+
+                    b.ToTable("MedicalProcedures");
+                });
+
+            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.Operation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Doctor")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("OperationName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Wyjazdy");
+                    b.ToTable("Operations");
                 });
 
-            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.Atrakcja", b =>
+            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.HospitalWard", b =>
                 {
-                    b.HasOne("ASP.NET_Core_Web_API.Entities.Wyjazd", "Wyjazd")
-                        .WithMany("Atrakcje")
-                        .HasForeignKey("WyjazdId")
+                    b.HasOne("ASP.NET_Core_Web_API.Entities.Operation", "Operation")
+                        .WithOne("HospitalWard")
+                        .HasForeignKey("ASP.NET_Core_Web_API.Entities.HospitalWard", "OperationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.Miejsce", b =>
+            modelBuilder.Entity("ASP.NET_Core_Web_API.Entities.MedicalProcedure", b =>
                 {
-                    b.HasOne("ASP.NET_Core_Web_API.Entities.Wyjazd", "Wyjazd")
-                        .WithOne("Miejsce")
-                        .HasForeignKey("ASP.NET_Core_Web_API.Entities.Miejsce", "WyjazdId")
+                    b.HasOne("ASP.NET_Core_Web_API.Entities.Operation", "Operation")
+                        .WithMany("MedicalProcedures")
+                        .HasForeignKey("OperationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

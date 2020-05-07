@@ -27,14 +27,14 @@ namespace ASP.NET_Core_Web_API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<WakacjeContext>(); 
-            services.AddScoped<DodajWakacje>();
+            services.AddDbContext<HospitalContext>(); 
+            services.AddScoped<AddHospital>();
             services.AddControllers();
             services.AddAutoMapper(this.GetType().Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DodajWakacje dodaj)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, AddHospital dodaj)
         {
             if (env.IsDevelopment())
             {
@@ -52,7 +52,7 @@ namespace ASP.NET_Core_Web_API
                 endpoints.MapControllers();
             });
 
-            dodaj.DodajDane();
+            dodaj.AddData();
         }
     }
 }

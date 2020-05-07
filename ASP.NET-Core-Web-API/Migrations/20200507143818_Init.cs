@@ -8,87 +8,85 @@ namespace ASP.NET_Core_Web_API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Wyjazdy",
+                name: "Operations",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NazwaWyjazdu = table.Column<string>(nullable: true),
-                    Organizator = table.Column<string>(nullable: true),
-                    Data = table.Column<DateTime>(nullable: false),
-                    CzyFirma = table.Column<bool>(nullable: false)
+                    OperationName = table.Column<string>(nullable: true),
+                    Doctor = table.Column<string>(nullable: true),
+                    Date = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Wyjazdy", x => x.Id);
+                    table.PrimaryKey("PK_Operations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Atrakcje",
+                name: "HospitalWards",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    NazwaAtrakcji = table.Column<string>(nullable: true),
-                    Odleglosc = table.Column<int>(nullable: false),
-                    Cena = table.Column<int>(nullable: false),
-                    Opis = table.Column<string>(nullable: true),
-                    WyjazdId = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Atrakcje", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Atrakcje_Wyjazdy_WyjazdId",
-                        column: x => x.WyjazdId,
-                        principalTable: "Wyjazdy",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Miejsca",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Kraj = table.Column<string>(nullable: true),
+                    Country = table.Column<string>(nullable: true),
                     Region = table.Column<string>(nullable: true),
-                    WyjazdId = table.Column<int>(nullable: false)
+                    OperationId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Miejsca", x => x.Id);
+                    table.PrimaryKey("PK_HospitalWards", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Miejsca_Wyjazdy_WyjazdId",
-                        column: x => x.WyjazdId,
-                        principalTable: "Wyjazdy",
+                        name: "FK_HospitalWards_Operations_OperationId",
+                        column: x => x.OperationId,
+                        principalTable: "Operations",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "MedicalProcedures",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MedicalProcedureName = table.Column<string>(nullable: true),
+                    Price = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(nullable: true),
+                    OperationId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_MedicalProcedures", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_MedicalProcedures_Operations_OperationId",
+                        column: x => x.OperationId,
+                        principalTable: "Operations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Atrakcje_WyjazdId",
-                table: "Atrakcje",
-                column: "WyjazdId");
+                name: "IX_HospitalWards_OperationId",
+                table: "HospitalWards",
+                column: "OperationId",
+                unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Miejsca_WyjazdId",
-                table: "Miejsca",
-                column: "WyjazdId",
-                unique: true);
+                name: "IX_MedicalProcedures_OperationId",
+                table: "MedicalProcedures",
+                column: "OperationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Atrakcje");
+                name: "HospitalWards");
 
             migrationBuilder.DropTable(
-                name: "Miejsca");
+                name: "MedicalProcedures");
 
             migrationBuilder.DropTable(
-                name: "Wyjazdy");
+                name: "Operations");
         }
     }
 }
