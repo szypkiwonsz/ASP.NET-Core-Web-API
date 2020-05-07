@@ -45,8 +45,10 @@ C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\bin\Debug\
 C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\bin\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.dll
 C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\bin\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.pdb
 C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\obj\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.csproj.CoreCompileInputs.cache
-C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\obj\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\obj\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.dll
 C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\obj\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.pdb
 C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\obj\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.genruntimeconfig.cache
+C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\obj\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.csproj.CoreCompileInputs.cache
+C:\Users\kacpe\source\repos\ASP.NET-Core-Web-API\ASP.NET-Core-Web-API\obj\Debug\netcoreapp3.1\ASP.NET-Core-Web-API.MvcApplicationPartsAssemblyInfo.cache

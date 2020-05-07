@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "nk7R16FsLpka5OVAsJA+OyiMRQqKsyyMye/+3STMYx1YOpC96aVTt1EwP+K51Sj/svHfQoLnZphGHxniKLS9nA==",
+  "dgSpecHash": "IcB5ycmA0TgkF8H3bIjJChWxDHWXpogHBl917BeC6C+ZrEpdVR3b5+PPTVxhllRghxKluZz2vMF5BWGz86BD4Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\kacpe\\source\\repos\\ASP.NET-Core-Web-API\\ASP.NET-Core-Web-API\\ASP.NET-Core-Web-API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kacpe\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\kacpe\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\7.0.0\\automapper.extensions.microsoft.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\kacpe\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\kacpe\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",
     "C:\\Users\\kacpe\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
