@@ -49,7 +49,27 @@ namespace ASP.NET_Core_Web_API
 
                         }
 
-                    },     
+                    },
+                    new Operation {
+                        OperationName = "Lung surgery",
+                        Doctor = "Johny",
+                        Date = DateTime.Now.AddDays(10),
+                        HospitalWard = new HospitalWard
+                        {
+                            Country = "Poland",
+                            Region = "Masovian district",
+                        },
+                        MedicalProcedures = new List<MedicalProcedure>
+                        {
+                            new MedicalProcedure {
+                                MedicalProcedureName = "Operation",
+                                Price = 80,
+                                Description = "Simple lungs operaion"
+                            }
+
+                        }
+
+                    },
 
             }; hospitalContext.AddRange(operations); hospitalContext.SaveChanges();
         }

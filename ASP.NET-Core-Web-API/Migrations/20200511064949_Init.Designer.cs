@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ASP.NET_Core_Web_API.Migrations
 {
     [DbContext(typeof(HospitalContext))]
-    [Migration("20200507143818_Init")]
+    [Migration("20200511064949_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

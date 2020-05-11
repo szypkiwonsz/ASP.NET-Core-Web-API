@@ -15,7 +15,6 @@ namespace ASP.NET_Core_Web_API
             CreateMap<Operation, HospitalDetailsDto>()
                 .ForMember(m => m.Country, map => map.MapFrom(operation => operation.HospitalWard.Country))
                 .ForMember(m => m.Region, map => map.MapFrom(operation => operation.HospitalWard.Region));
-
         }
     }
 }
